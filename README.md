@@ -92,7 +92,7 @@ yarn vitest -ui
 - <b>ProductCard</b>: Ensures product details render correctly and items are added to the cart.
 - <b>ProductGallery</b>: Tests product fetching and display.
 - <b>SearchBar</b>: Verifies search functionality.
-- 
+
 ## Unit Tests Demo
 
 https://github.com/user-attachments/assets/20f6c7da-ca43-42d2-a161-753c1eddfd72
