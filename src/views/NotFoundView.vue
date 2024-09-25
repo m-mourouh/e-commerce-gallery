@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-lg mt-24  flex items-center justify-center flex-col">
+    <div class="mt-24  flex items-center justify-center flex-col">
       <img src="@/assets/images/404.svg" alt="404 Not Found" class="w-full max-w-xs mx-auto" />
       <p class="text-2xl font-semibold mt-10 mb-6 text-gray-700 text-center">
         {{ $t('pageNotFound') }}
