@@ -108,6 +108,11 @@ export const store = createStore<State>({
       const newCartQty = updatedCart.reduce((acc: number, item: any) => acc + item.quantity, 0)
       commit('setTotalProducts', { quantity: newCartQty, action: QuantityActions.SET })
       commit('removeProductFromCart', productId)
+    },
+    emptyCart({ commit }) {
+        localStorage.setItem('cart', '[]')
+        commit('setCart', [])
+        commit("setTotalProducts", { quantity: 0, action: QuantityActions.SET })
     }
   },
   getters: {
