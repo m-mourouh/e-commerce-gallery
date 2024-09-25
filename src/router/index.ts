@@ -7,8 +7,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
-    },
+      component: HomeView,
+      // Optional search query
+      props: (route) => ({ search: route.query.search })
+    }
   ]
 })
 
