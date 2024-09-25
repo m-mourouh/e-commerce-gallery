@@ -3,15 +3,16 @@
 ![Version](https://img.shields.io/badge/version-2.1.1-brightgreen)
 ![Framework](https://img.shields.io/badge/framework-Vue.js-green)
 
-## 📚 Overview
+## Overview
 
-This project is a simple frontend application for an e-commerce product gallery using the Fake Store API. It features a persistent shopping cart that retains its state between page refreshes.
+This project is a simple front-end application for an e-commerce product gallery using the Fake Store API. It features a persistent shopping cart that retains its state between page refreshes.
 
-## 🌐 Live Demo
+## App Demo
 
-[View Live Demo](https://your-live-demo-link.com) (add your live demo link here)
+https://github.com/user-attachments/assets/ee6bd5d8-e8ca-4237-8608-f95bf5a73024
 
-## 🛠️ Features 
+
+## Features 
 
 - **Product List**: Displays products with images, names, and prices.
 - **Persistent Cart**: Saves cart state in local storage to persist after page refreshes.
@@ -19,25 +20,32 @@ This project is a simple frontend application for an e-commerce product gallery 
 - **Product Search**: Filter products by name.
 - **Simple Animation**: Subtle animation when adding items to the cart.
 
-## 📸 Visual Preview
+## Visual Preview
 
-### 🏠 Home Page
-![alt text](image-4.png)
+### Home Page
+![image-4](https://github.com/user-attachments/assets/7ebb635f-8e27-4380-949b-a1e20bbcfaed)
 
-### 🛒 Cart Page
+
+### Cart Page
 #### Cart with products
-![alt text](image-7.png)
-#### Empty Cart
-![alt text](image-6.png)
+![image-7](https://github.com/user-attachments/assets/f9bc8157-c154-4872-82ea-a4a98879a658)
 
-### 🔍 Product Search
+#### Empty Cart
+![image-6](https://github.com/user-attachments/assets/17054b74-4c00-4b1e-93eb-3a1a83da3f3f)
+
+
+### Product Search
+
 #### Products Found
-![alt text](image-5.png)
+![image-5](https://github.com/user-attachments/assets/158ab206-a567-4cb2-b28c-c879de72de16)
+
 #### No Product Found
-![alt text](image-8.png)
+![image-8](https://github.com/user-attachments/assets/5fbb1363-0c79-4cab-9179-251f02b1d5af)
+
 ### Page Not Found
-![alt text](image-9.png)
-## 📋 User Stories
+![image-9](https://github.com/user-attachments/assets/b32a2135-e841-462d-abd2-d1b75522b1c4)
+
+## User Stories
 
 ### User Story 1
 
@@ -84,8 +92,12 @@ yarn vitest -ui
 - <b>ProductCard</b>: Ensures product details render correctly and items are added to the cart.
 - <b>ProductGallery</b>: Tests product fetching and display.
 - <b>SearchBar</b>: Verifies search functionality.
-  
-![alt text](image.png)
+- 
+## Unit Tests Demo
+
+https://github.com/user-attachments/assets/20f6c7da-ca43-42d2-a161-753c1eddfd72
+
+
 ## Architecture
 - <b>Vue.js</b>: Utilized for building the user interface.
 - <b>Local Storage</b>: Used for persisting cart data.
