@@ -27,9 +27,26 @@ export const store = createStore<State>({
       } else {
         state.totalProducts = quantity
       }
-    }
+    },
+    setProducts(state, products) {
+        state.products = products
+    },
+    setCart(state, items) {
+        state.cart = { items }
+      },
   },
   actions: {
+    async getProducts({ commit }) {
+        await axios
+          .get('/products')
+          .then((res) => {
+            const products: Product[] = res.data
+            commit('setProducts', { products })
+          })
+          .catch((err) => {
+            console.error(err)
+          })
+    },
     addProductToCart({ commit }, productId) {
       const cart = localStorage.getItem('cart')
       if (cart) {
@@ -47,7 +64,29 @@ export const store = createStore<State>({
         localStorage.setItem('cart', JSON.stringify([{ productId: productId, quantity: 1 }]))
         commit('setTotalProducts', { quantity: 1, action: QuantityActions.INCREMENT })
       }
-    }
+    },
+    fetchCart({ commit }) {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+        if (cart && cart.length > 0) {
+          const cartItemsPromises = cart.map(async (item: any) => {
+            try {
+              const res = await axios.get(`/products/${item.productId}`)
+              const product = res.data
+              return { product, quantity: item.quantity }
+            } catch (err) {
+              console.error(err)
+              return null
+            }
+          })
+          Promise.all(cartItemsPromises).then((cartItems) => {
+            const validCartItems = cartItems.filter((item) => item !== null)
+            commit('setCart', validCartItems)
+            const newCartQty = validCartItems.reduce((acc: number, item: any) => acc + item.quantity, 0)
+            commit("setTotalProducts", { quantity: newCartQty, action: QuantityActions.SET})
+            
+          })
+        }
+      },
   },
   getters: {
     allProducts: (state) => state.products,
