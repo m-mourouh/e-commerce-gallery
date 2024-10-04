@@ -31,7 +31,7 @@
       </div>
       <div class="items-center sm:mt-auto sm:flex">
         <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">
-          {{ $t('currency') }} {{ product.price }}
+          {{ $t('currency') }} {{ formatNumber(product.price * count)}}
         </span>
         <div class="flex items-center justify-between mt-4 sm:mt-0">
           <div class="flex border border-neutral-300 rounded-md">
@@ -93,6 +93,7 @@ import {
 import { useCounter } from '@vueuse/core'
 import {ref, watch, type PropType } from 'vue'
 import { useStore } from 'vuex';
+import { formatNumber } from '@/helpers';
 
 const props = defineProps({
   product: {
