@@ -20,12 +20,16 @@ export const store = createStore<State>({
   },
   mutations: {
     setTotalProducts(state, { quantity, action }) {
-      if (action === QuantityActions.INCREMENT) {
-        state.totalProducts += 1
-      } else if (action === QuantityActions.DECREMENT) {
-        state.totalProducts -= 1
-      } else {
-        state.totalProducts = quantity
+      switch (action) {
+        case QuantityActions.INCREMENT:
+          state.totalProducts += 1;
+          break;
+        case QuantityActions.DECREMENT:
+          state.totalProducts -= 1;
+          break;
+        default:
+          state.totalProducts = quantity;
+          break;
       }
     },
     updateCartItemQuantity(state, newItem) {
