@@ -28,6 +28,11 @@ export const store = createStore<State>({
         state.totalProducts = quantity
       }
     },
+    updateCartItemQuantity(state, newItem) {
+      if (state.cart) {
+        state.cart.items = state.cart.items.map((item) => item.product.id === newItem.productId ? {...item, quantity: newItem.quantity} : item)
+      }
+    },
     setProducts(state, products) {
       state.products = products
     },
@@ -99,6 +104,7 @@ export const store = createStore<State>({
         product.quantity = quantity
         localStorage.setItem('cart', JSON.stringify(cart))
         commit('setTotalProducts', { quantity: 1, action })
+        commit('updateCartItemQuantity', { productId, quantity })
       }
     },
     removeProductFromCart({ commit }, { productId }) {
@@ -119,5 +125,6 @@ export const store = createStore<State>({
     allProducts: (state) => state.products,
     cart: (state) => state.cart,
     totalProducts: (state) => state.totalProducts,
+    totalPrice: (state) => state.cart ? state.cart.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0) : 0,
   }
 })

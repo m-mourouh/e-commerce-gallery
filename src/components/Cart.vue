@@ -10,14 +10,19 @@
       :product="item.product"
       :quantity="item.quantity"
     />
+    <div>
+      <p class="text-lg font-bold">{{$t('total')}}: {{ total }}</p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { type PropType } from 'vue'
+import { computed, type PropType } from 'vue'
 import type { Cart } from '../types/Cart'
 import CartItem from './CartItem.vue'
 import { useStore } from 'vuex';
+import { formatNumber } from '@/helpers';
+const store = useStore()
 
 defineProps({
   cart: {
@@ -26,10 +31,11 @@ defineProps({
   }
 })
 
-const store = useStore()
-
 // Methods
 const emptyCart = () => {
     store.dispatch('emptyCart')
 }
+
+// Computed
+const total = computed(() => formatNumber(store.getters.totalPrice))
 </script>

@@ -14,6 +14,7 @@ const messages = {
     continueShopping: 'Continue shopping',
     noProductFound: 'No product found',
     pageNotFound: 'Page not found',
+    total: 'Total',
   },
   fr: {
     addToCart: 'Ajouter au panier',
@@ -28,6 +29,7 @@ const messages = {
     continueShopping: 'Continuer vos achats',
     noProductFound: 'Aucun produit trouvé',
     pageNotFound: 'Page non trouvée',
+    total: 'Total',
   },
 
 }
