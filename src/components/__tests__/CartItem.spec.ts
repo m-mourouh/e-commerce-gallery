@@ -39,7 +39,7 @@ describe('CartItem Component', () => {
     expect(wrapper.text()).toContain(product.title)
 
     // Check if product price is rendered
-    expect(wrapper.text()).toContain(product.price)
+    expect(wrapper.text()).toContain(product.price * wrapper.props().quantity)
 
     // Check if product category is rendered
     expect(wrapper.text()).toContain(product.category)
